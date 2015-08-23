@@ -19,6 +19,7 @@
 \usepackage{amssymb}
 
 \usepackage{enumerate}
+\usepackage{pdfpages}
 
 \usepackage{geometry}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=4cm}
@@ -58,4 +59,41 @@
 \subsection{体脂的测量}
 传统上，测量体脂率的方法较为复杂，目前的标准是以DEXA测量为主，利用身体不同组织（矿物质、瘦身体、脂肪）对x光吸收率不同的原理来测量体内脂肪含量的方法，但这样所耗费的时间及费用都相当不经济，而且我们采用较方便的生物电阻测量法测量，（简称BIA），在很短的时间内即可获得颇准确的测量值，适合在家庭中及医师在门诊使用。 \\
 BIA测量法的主要原理乃是将身体简单分为导电的体液、肌肉等，以及不导电的脂肪组织。测量时由电极片发出极微小的交变电流经过身体，电流会随着电阻小、传导性能好的体液流传。水分的多少决定了电流通过的通路的宽窄，可测得对应的阻抗值。在人体中，阻抗和电阻的值仅仅相差约$2-3\Omega$，故可用测得的阻抗近似代替人体的电阻值。若脂肪比率高，则所测得的生物电阻较大，反之亦然，BIA就是经由此种机转来做体脂率的测量。
+
+\section{方案设计}
+\subsection{系统框图}
+
+\subsection{芯片选型}
+\subsubsection{INA333}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{INA333.png}
+\caption{INA333}
+\end{figure}
+INA333是一款可以使用单电源供电的仪表放大器，相比较INA128使用双电源供电的设计更加科学。在本设计中用于压力传感器桥路放大和人体电阻测量中的微电流放大。
+
+\subsubsection{TS5A3359}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{TS5A3359.png}
+\caption{TS5A3359}
+\end{figure}
+TS5A3359是一款单刀三掷的模拟开关，用于对三路模拟输入进行多路复用。
+
+\subsubsection{TLC0820}
+TLC0820是一款并行输出的ADC，片上跟踪保持，使用简便，并行输出可以简化FPGA接口的设计。芯片由实验室提供，用于本设计非常合适。
+
+\subsection{设计细节}
+TLC0820的输出电平为5V，与FPGA相连需要注意一些事项。\\
+
+查阅Altera Application Note C51011 (Using Cyclone Devices in Multiple-Voltage Systems)，可以得到相关信息。
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{5V.png}
+\caption{Cyclone 5V 电平连接}
+\end{figure}
+在Cyclone 器件中开启 PCI Clamp，并配合外接电阻$R_2$，使得Cyclone 器件可以兼容5V电平输入。
+
+\section{接口电路设计}
+\includepdf[landscape=true]{sch.pdf}
 \end{document}
