@@ -79,28 +79,7 @@ applicable agreement for further details.
 		(text "out[3..0]" (rect 124 43 155 55)(font "Arial" ))
 		(line (pt 176 48)(pt 160 48)(line_width 3))
 	)
-	(parameter
-		"S0"
-		"0"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"S1"
-		"1"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"S2"
-		"2"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"S3"
-		"3"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
 		(rectangle (rect 16 16 160 128)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 192 -64 292 16))
 )

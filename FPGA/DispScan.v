@@ -16,7 +16,7 @@ module DispScan
 	reg		[1:0]state;
 
 	// Declare states
-	parameter S0 = 0, S1 = 1, S2 = 2, S3 = 3;
+	localparam S0 = 0, S1 = 1, S2 = 2, S3 = 3;
 
 	// Output depends only on the state
 	always @ (state or en) 

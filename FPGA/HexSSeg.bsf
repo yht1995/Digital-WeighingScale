@@ -18,26 +18,26 @@ programming logic devices manufactured by Altera and sold by
 Altera or its authorized distributors.  Please refer to the 
 applicable agreement for further details.
 */
-(header "symbol" (version "1.1"))
+(header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 192 96)
-	(text "HexSSeg" (rect 5 0 42 12)(font "Arial" ))
-	(text "inst" (rect 8 64 20 76)(font "Arial" ))
+	(rect 64 64 208 152)
+	(text "HexSSeg" (rect 5 0 51 12)(font "Arial" ))
+	(text "inst" (rect 8 64 25 76)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
-		(text "hex[3..0]" (rect 0 0 34 12)(font "Arial" ))
-		(text "hex[3..0]" (rect 21 27 55 39)(font "Arial" ))
+		(text "hex[3..0]" (rect 0 0 43 12)(font "Arial" ))
+		(text "hex[3..0]" (rect 21 27 64 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
-		(pt 176 32)
+		(pt 144 32)
 		(output)
-		(text "sseg[6..0]" (rect 0 0 38 12)(font "Arial" ))
-		(text "sseg[6..0]" (rect 117 27 155 39)(font "Arial" ))
-		(line (pt 176 32)(pt 160 32)(line_width 3))
+		(text "sseg[6..0]" (rect -32 0 17 12)(font "Arial" ))
+		(text "sseg[6..0]" (rect 82 27 123 39)(font "Arial" ))
+		(line (pt 144 32)(pt 128 32)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 160 64)(line_width 1))
+		(rectangle (rect 16 16 128 64))
 	)
 )

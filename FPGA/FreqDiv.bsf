@@ -37,7 +37,13 @@ applicable agreement for further details.
 		(text "clk_out" (rect 103 27 131 39)(font "Arial" ))
 		(line (pt 152 32)(pt 136 32)(line_width 1))
 	)
+	(parameter
+		"N"
+		"200000"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
 		(rectangle (rect 16 16 136 64)(line_width 1))
 	)
+	(annotation_block (parameter)(rect 168 -64 268 16))
 )

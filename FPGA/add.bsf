@@ -18,40 +18,26 @@ programming logic devices manufactured by Altera and sold by
 Altera or its authorized distributors.  Please refer to the 
 applicable agreement for further details.
 */
-(header "symbol" (version "1.2"))
+(header "symbol" (version "1.1"))
 (symbol
-	(rect 48 48 216 184)
-	(text "BinToDec" (rect 21 16 68 28)(font "Arial" ))
-	(text "inst" (rect 24 112 41 124)(font "Arial" ))
+	(rect 16 16 176 96)
+	(text "add" (rect 5 0 19 12)(font "Arial" ))
+	(text "inst" (rect 8 64 20 76)(font "Arial" ))
 	(port
-		(pt 0 48)
+		(pt 0 32)
 		(input)
-		(text "Code[7..0]" (rect 0 16 51 28)(font "Arial" ))
-		(text "Code[7..0]" (rect 21 43 72 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
+		(text "in[3..0]" (rect 0 0 25 12)(font "Arial" ))
+		(text "in[3..0]" (rect 21 27 46 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
-		(pt 168 48)
+		(pt 160 32)
 		(output)
-		(text "bit1[3..0]" (rect -8 16 35 28)(font "Arial" ))
-		(text "bit1[3..0]" (rect 111 43 147 55)(font "Arial" ))
-		(line (pt 168 48)(pt 152 48)(line_width 3))
-	)
-	(port
-		(pt 168 64)
-		(output)
-		(text "bit2[3..0]" (rect -8 16 35 28)(font "Arial" ))
-		(text "bit2[3..0]" (rect 111 59 147 71)(font "Arial" ))
-		(line (pt 168 64)(pt 152 64)(line_width 3))
-	)
-	(port
-		(pt 168 80)
-		(output)
-		(text "bit3[3..0]" (rect -8 16 35 28)(font "Arial" ))
-		(text "bit3[3..0]" (rect 111 75 147 87)(font "Arial" ))
-		(line (pt 168 80)(pt 152 80)(line_width 3))
+		(text "out[3..0]" (rect 0 0 31 12)(font "Arial" ))
+		(text "out[3..0]" (rect 108 27 139 39)(font "Arial" ))
+		(line (pt 160 32)(pt 144 32)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 32 152 104))
+		(rectangle (rect 16 16 144 64)(line_width 1))
 	)
 )
