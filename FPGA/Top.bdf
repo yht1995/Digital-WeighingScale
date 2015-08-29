@@ -261,7 +261,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 96 -88 272 -72)
+	(rect 96 -120 272 -104)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "press" (rect 90 0 117 12)(font "Arial" ))
 	(pt 0 8)
@@ -274,13 +274,13 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 272 -88 320 -72))
+	(annotation_block (location)(rect 272 -120 320 -104))
 )
 (pin
 	(output)
-	(rect -104 160 72 176)
+	(rect 176 -160 352 -144)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "key_press" (rect 90 0 141 12)(font "Arial" ))
+	(text "Beep" (rect 90 0 114 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -291,24 +291,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 72 160 120 176))
-)
-(pin
-	(output)
-	(rect -168 -88 8 -72)
-	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "IR_press" (rect 90 0 134 12)(font "Arial" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 0 8)(pt 52 8))
-		(line (pt 52 4)(pt 78 4))
-		(line (pt 52 12)(pt 78 12))
-		(line (pt 52 12)(pt 52 4))
-		(line (pt 78 4)(pt 82 8))
-		(line (pt 82 8)(pt 78 12))
-		(line (pt 78 12)(pt 82 8))
-	)
-	(annotation_block (location)(rect 8 -88 56 -72))
+	(annotation_block (location)(rect 352 -144 408 -128))
 )
 (symbol
 	(rect 416 -104 448 -88)
@@ -922,6 +905,38 @@ applicable agreement for further details.
 	)
 	(annotation_block (parameter)(rect -408 200 -224 224))
 )
+(symbol
+	(rect 96 -176 160 -128)
+	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
+	(text "inst9" (rect 3 37 26 49)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
+		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 14 16))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(line (pt 0 32)(pt 14 32))
+	)
+	(port
+		(pt 64 24)
+		(output)
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(line (pt 42 24)(pt 64 24))
+	)
+	(drawing
+		(line (pt 14 12)(pt 30 12))
+		(line (pt 14 37)(pt 31 37))
+		(line (pt 14 12)(pt 14 37))
+		(arc (pt 31 37)(pt 30 12)(rect 18 12 43 37))
+	)
+)
 (connector
 	(pt -112 -224)
 	(pt -96 -224)
@@ -1125,14 +1140,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 64 -80)
-	(pt 96 -80)
-)
-(connector
-	(pt 64 8)
-	(pt 64 -80)
-)
-(connector
 	(pt -208 120)
 	(pt -208 24)
 	(bus)
@@ -1157,42 +1164,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 40 8)
-	(pt 64 8)
-)
-(connector
-	(pt 64 8)
-	(pt 184 8)
-)
-(connector
-	(pt -168 -80)
-	(pt -264 -80)
-)
-(connector
-	(pt -264 8)
-	(pt -264 -80)
-)
-(connector
-	(pt -288 8)
-	(pt -264 8)
-)
-(connector
-	(pt -264 8)
-	(pt -168 8)
-)
-(connector
-	(pt -192 168)
-	(pt -104 168)
-)
-(connector
-	(pt -192 40)
-	(pt -192 136)
-)
-(connector
-	(pt -192 136)
-	(pt -192 168)
-)
-(connector
 	(pt -224 120)
 	(pt -208 120)
 	(bus)
@@ -1202,14 +1173,54 @@ applicable agreement for further details.
 	(pt -192 136)
 )
 (connector
-	(text "CLK_1MHz" (rect -246 -40 -192 -28)(font "Arial" ))
+	(pt -208 536)
+	(pt -72 536)
+)
+(connector
+	(pt -192 40)
+	(pt -192 136)
+)
+(connector
+	(text "CLK_1MHz" (rect -238 -40 -184 -28)(font "Arial" ))
 	(pt -168 -24)
 	(pt -248 -24)
 )
 (connector
-	(pt -208 536)
-	(pt -72 536)
+	(pt -288 8)
+	(pt -168 8)
 )
-(junction (pt 64 8))
-(junction (pt -192 136))
-(junction (pt -264 8))
+(connector
+	(pt 56 -112)
+	(pt 96 -112)
+)
+(connector
+	(pt 40 8)
+	(pt 56 8)
+)
+(connector
+	(pt 56 8)
+	(pt 184 8)
+)
+(connector
+	(pt 96 -144)
+	(pt 56 -144)
+)
+(connector
+	(pt 56 -144)
+	(pt 56 -112)
+)
+(connector
+	(pt 56 -112)
+	(pt 56 8)
+)
+(connector
+	(text "CLK_2500Hz" (rect 32 -176 95 -164)(font "Arial" ))
+	(pt 96 -160)
+	(pt 32 -160)
+)
+(connector
+	(pt 176 -152)
+	(pt 160 -152)
+)
+(junction (pt 56 8))
+(junction (pt 56 -112))

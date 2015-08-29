@@ -102,22 +102,22 @@ end
 wire fault = cnt_h[15] | cnt_l[15];		//错误
 reg [5:0]cnt_num;
 initial cnt_num = 6'b0;
-reg [3:0]cnt_press;
+reg [19:0]cnt_press;
 
 
 always @ (posedge clk) 			//1us
 begin
  if(press == 1'b1)
 	cnt_press <= cnt_press + 1;
- if(cnt_press == 4'b1111)
+ if(cnt_press == 20'd100000)
 	begin
 		press <= 0;
-		cnt_press <=4'b0000;
+		cnt_press <=0;
 	end
  case(state)
  ST_START_L:
 	begin
-	press <= 0;
+	//press <= 0;
 	cnt_num  <=  6'b0;
 		if((IR_pos == 1'b1) & (Flag_LVL==1'b1))
 			begin
@@ -128,7 +128,7 @@ begin
 	end
  ST_START_H : 
  	begin
-	press <= 0;
+	//press <= 0;
 	cnt_num  <=  6'b0;	
 		if((IR_neg == 1'b1) & (Flag_HVL==1'b1))
 			begin
