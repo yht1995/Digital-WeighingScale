@@ -16,6 +16,9 @@ begin
 	8'h42:key = 7;
 	8'h52:key = 8;
 	8'h4A:key = 9;
+	8'h44:key = 10; //Clear
+	8'h40:key = 11; //OK
+	8'h43:key = 12; //Set
 	default:key = 0;
 	endcase
 end

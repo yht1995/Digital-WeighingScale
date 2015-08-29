@@ -29,25 +29,12 @@ parameter CODE_0 	= 16'd512  + 16'd512 ;	//us
 parameter CODE_1 	= 16'd1536 + 16'd512 ;	//us
 
 reg   [2:0]state;		
-initial state = ST_START_L;
 reg	[15:0]cnt_h;
-initial cnt_h = 16'b0;
 reg	[15:0]cnt_l;
-initial cnt_l = 16'b0;
-reg 	[31:0]T_Value;
-initial T_Value = 32'b0;
-
 reg 	[31:0]IR_Value;
-initial IR_Value = 32'b0;
-
 reg	[15:0]cnt_val;
-initial cnt_val = 16'b0;
-
 reg   Flag_LVL;
-initial Flag_LVL = 1'b0;
-
 reg   Flag_HVL;
-initial Flag_HVL = 1'b0;
 
 always @ (posedge clk or posedge ir)
 begin
@@ -115,14 +102,23 @@ end
 wire fault = cnt_h[15] | cnt_l[15];		//错误
 reg [5:0]cnt_num;
 initial cnt_num = 6'b0;
+reg [3:0]cnt_press;
 
 
 always @ (posedge clk) 			//1us
 begin
+ if(press == 1'b1)
+	cnt_press <= cnt_press + 1;
+ if(cnt_press == 4'b1111)
+	begin
+		press <= 0;
+		cnt_press <=4'b0000;
+	end
  case(state)
  ST_START_L:
 	begin
-	cnt_num  <=  6'b0;	
+	press <= 0;
+	cnt_num  <=  6'b0;
 		if((IR_pos == 1'b1) & (Flag_LVL==1'b1))
 			begin
 				state <= ST_START_H;
@@ -132,6 +128,7 @@ begin
 	end
  ST_START_H : 
  	begin
+	press <= 0;
 	cnt_num  <=  6'b0;	
 		if((IR_neg == 1'b1) & (Flag_HVL==1'b1))
 			begin
@@ -146,7 +143,6 @@ begin
 			begin
 				cnt_num = cnt_num + 1'b1;
 				IR_Value <= {IR_Value[30:0],1'b1};
-				press <= 1'b0;
 			end
 		else	if((IR_neg)&(IR_code == CODE_0))
 			begin
@@ -155,19 +151,15 @@ begin
 			end
 		else if(cnt_num==6'd32)
 			begin
+				press    <=  1'b1;
 				cnt_num  <=  6'b0;
-				press 	<=	 1'b1;
-				T_Value  <=  IR_Value;
 				state 	<=  ST_START_L;
 				Code 		<=  {IR_Value[8],IR_Value[9],IR_Value[10],IR_Value[11],IR_Value[12],IR_Value[13],IR_Value[14],IR_Value[15]};
 			end
 	end
    default : state <=  ST_START_L;
 endcase
-end				
-
-
-
+end
 endmodule
 
 

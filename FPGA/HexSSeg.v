@@ -19,11 +19,11 @@ module HexSSeg
 				4'b1000:sseg=7'b1111111; 
 				4'b1001:sseg=7'b1111011; 
 				4'b1010:sseg=7'b1110111;//A 
-				4'b1011:sseg=7'b0011111;//b 
-				4'b1100:sseg=7'b1001110;//C 
+				4'b1011:sseg=7'b0011101;//o 
+				4'b1100:sseg=7'b0110111;//H 
 				4'b1101:sseg=7'b0111101;//d 
 				4'b1110:sseg=7'b1001111;//E 
-				4'b1111:sseg=7'b1000111;//F 
+				4'b1111:sseg=7'b0000000;//灭零
 				default: sseg=7'bx;
 			endcase
 		end
