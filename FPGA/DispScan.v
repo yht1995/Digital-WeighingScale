@@ -9,7 +9,9 @@ module DispScan
 (
 	input clk,en,
 	input [3:0]in0,in1,in2,in3,
-	output reg [3:0]select,out
+	input indip,
+	output reg [3:0]select,out,
+	output reg outdip
 );
 
 	// Declare state register
@@ -28,28 +30,35 @@ module DispScan
 					begin
 						select <= 4'b0001;
 						out[3:0] <= in0[3:0];
+						outdip <= 0;
 					end
 				S1:
 					begin
 						select <= 4'b0010;
 						out[3:0] <= in1[3:0];
+						if(indip)
+						   outdip <= 1;
+						else
+							outdip <= 0;
 					end	
 				S2:
 					begin
 						select <= 4'b0100;
 						out[3:0] <= in2[3:0];
+						outdip <= 0;
 					end
 				S3:
 					begin
 						select <= 4'b1000;
 						out[3:0] <= in3[3:0];
+						outdip <= 0;
 					end
 				default:
-					out = 4'b0000;
+					{out, outdip} = 5'b00000;
 			endcase
 			end
 		else
-			select <= 4'b0000;
+			{select, outdip} <= 5'b00000;
 	end
 
 	// Determine the next state

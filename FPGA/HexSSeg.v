@@ -1,11 +1,13 @@
 module HexSSeg
 (
 	input wire [3:0] hex,
-	output reg [6:0] sseg
+	input dip,
+	output reg [6:0] sseg,
+	output reg dot
 );
 
 
-	always @(hex)
+	always @(hex or dip)
 		begin
 			case(hex)
 				4'b0000:sseg=7'b1111110; 
@@ -26,5 +28,9 @@ module HexSSeg
 				4'b1111:sseg=7'b0000000;//灭零
 				default: sseg=7'bx;
 			endcase
+			if(dip)
+			   dot <= 1;
+			else
+			   dot <= 0;
 		end
 endmodule
